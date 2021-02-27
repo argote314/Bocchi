@@ -167,7 +167,7 @@ client.on('group-participants-update', async (anu) => {
 			}
 
 			const botNumber = client.user.jid
-			const ownerNumber = ["+51916659000@s.whatsapp.net"] 
+			const ownerNumber = ["51916659000@s.whatsapp.net"] 
 			const isGroup = from.endsWith('@g.us')
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
@@ -217,7 +217,7 @@ client.on('group-participants-update', async (anu) => {
 					const koh = kapan[Math.floor(Math.random() * kapan.length)]
 					client.sendMessage(from, 'Pertanyaan : *'+kapankah+'*\n\nJawaban : '+ koh, text, { quoted: mek })
 					break
-           case 'apakah':
+           			case 'apakah':
 					apakah = body.slice(1)
 					const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
@@ -418,6 +418,16 @@ client.on('group-participants-update', async (anu) => {
 					pok = await getBuffer(nimek)
 					client.sendMessage(from, pok, image, { quoted: mek })
 					break
+					
+		case 'bocchi':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=bocchi`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+					
                 case 'anjing':
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anjing`, {method: 'get'})
 					reply(mess.wait)
