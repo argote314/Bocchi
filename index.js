@@ -167,7 +167,7 @@ client.on('group-participants-update', async (anu) => {
 			}
 
 			const botNumber = client.user.jid
-			const ownerNumber = ["+51916659000@s.whatsapp.net"] 
+			const ownerNumber = ["51916659000@s.whatsapp.net"] 
 			const isGroup = from.endsWith('@g.us')
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
@@ -340,6 +340,28 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, tod, image, { quoted: mek, caption: '*RETO*\n\n'+ der })
 					break
 					
+				case 'rolette':
+					const rolet =['Boom, mala suerte amigo, haz perdido\nIntente denuevo',' Vaya suerte tienes amigo, sobreviviste a esta ronda','Boom, mala suerte amigo, haz perdido\nIntente denuevo ','  Vaya suerte tienes amigo, sobreviviste a esta ronda','Boom, mala suerte amigo, haz perdido\nIntente denuevo',' Vaya suerte tienes amigo, sobreviviste a esta ronda']
+					const rol = rolet[Math.floor(Math.random() * rolet.length)]
+					role = await getBuffer(`https://i.ibb.co/M2DZqcb/Ea-PROZJXs-AE4-QQz.jpg`)
+					client.sendMessage(from, role, image, { caption: '*Juega con Bocchi*\n\n'+ rol, quoted: mek })
+					break
+				
+				case 'hentai':
+					if (!isNsfw) return reply('NSFW no está activo')
+					const hen =['https://cdn.nekos.life/erok/ero_kitsune_093.jpg','','https://cdn.nekos.life/classic/classic254.gif','https://cdn.nekos.life/classic/classic_049.gif','https://cdn.nekos.life/classic/classic_044.gif','https://cdn.nekos.life/classic/classic_003.gif','https://cdn.nekos.life/classic/classic_479.gif','https://cdn.nekos.life/Random_hentai_gif/Random_hentai_gifNB_1438.gif','https://cdn.nekos.life/Random_hentai_gif/Random_hentai_gifNB1023.gif','https://cdn.nekos.life/Random_hentai_gif/Random_hentai_gifNB0524.gif','https://cdn.nekos.life/Random_hentai_gif/Random_hentai_gifNB0852.gif','https://cdn.nekos.life/erok/ero_kitsune_033.png','https://cdn.nekos.life/erok/ero_kitsune_104.jpg','https://cdn.nekos.life/erok/ero_kitsune_004.png','https://cdn.nekos.life/erok/ero_kitsune_071.jpg','https://cdn.nekos.life/erok/ero_kitsune_002.png','https://cdn.nekos.life/erok/ero_kitsune_022.jpg','https://cdn.nekos.life/erok/ero_kitsune_022.jpg','https://cdn.nekos.life/erok/ero_kitsune_055.jpg','https://cdn.nekos.life/erok/ero_kitsune_025.jpg','https://cdn.nekos.life/erok/ero_kitsune_103.jpg','https://cdn.nekos.life/erok/ero_kitsune_028.png','https://cdn.nekos.life/erok/ero_kitsune_014.jpg','https://cdn.nekos.life/erok/ero_kitsune_005.jpg','https://cdn.nekos.life/erok/ero_kitsune_079.jpg','https://cdn.nekos.life/erok/ero_kitsune_046.jpg','https://cdn.nekos.life/erok/ero_kitsune_077.jpg',]
+					const henta = hen[Math.floor(Math.random() * hen.length)]
+					het = await getBuffer(`${henta}`)
+					client.sendMessage(from, het, image, { caption: 'Ojala te sirva ', quoted: mek })
+					break
+					
+			    	case 'confirmas?':
+					const conf =['https://i.ibb.co/Z85HKDv/en-un-rato-te-confirmo.jpg','https://i.ibb.co/qncWWRw/Desconfirmo.jpg','https://i.ibb.co/2qykqmx/confirmamos.jpg','https://i.ibb.co/C7v9qvq/confirmo.jpg']
+					const conif = conf[Math.floor(Math.random() * conf.length)]
+					confirma = await getBuffer(`${conif}`)
+					client.sendMessage(from, confirma, image, { caption: '*EL BOT....*', quoted: mek })
+					break
+					
 				case 'waifu':
 				   	anu = await fetchJson(`https://arugaz.herokuapp.com/api/waifu`)
 				   	buf = await getBuffer(anu.image)
@@ -352,12 +374,6 @@ client.on('group-participants-update', async (anu) => {
 					anu = await fetchJson(`https://mnazria.herokuapp.com/api/anime?query=${teks}`, {method: 'get'})
 					reply('anime nya ni '+teks+' adalah :\n\n'+anu.title)
 					break
-					
-                		case 'neko':
-                    			anu = await fetchJson(`https://arugaz.herokuapp.com/api/nekonime` , {method: 'get'})
-                    			buf = await getBuffer(anu.result)
-                   	 		client.sendMessage(from, buf, image, { quoted: mek, caption: 'ih wibu'})
-                			break
                 
 				case 'dewabatch':
                     			teks = body.slice(11)
@@ -370,7 +386,7 @@ client.on('group-participants-update', async (anu) => {
                      			const pesan = body.slice(5)
                       			if (pesan.length > 300) return client.sendMessage(from, '𝗟𝗼 𝘀𝗶𝗲𝗻𝘁𝗼, 𝘁𝗲𝘅𝘁𝗼 𝗱𝗲𝗺𝗮𝘀𝗶𝗮𝗱𝗼 𝗹𝗮𝗿𝗴𝗼, 𝗺𝗮́𝘅𝗶𝗺𝗼 𝟯𝟬𝟬 𝘁𝗲𝘅𝘁𝗼', msgType.text, {quoted: mek})
                         		var nomor = mek.participant
-                       			const teks1 = `*[REPORT]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPesan : ${pesan}`
+                       			const teks1 = `*[REPORTE]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPROBLEMA : ${pesan}`
                       			var options = {
                          		text: teks1,
                          		contextInfo: {mentionedJid: [nomor]},
@@ -426,7 +442,7 @@ client.on('group-participants-update', async (anu) => {
                    	 		reply(anu.result)
                 			break
                 
-				case 'pokemon':
+				case 'pcase':
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=pokemon`, {method: 'get'})
 					reply(mess.wait)
 					var n = JSON.parse(JSON.stringify(anu));
@@ -434,18 +450,91 @@ client.on('group-participants-update', async (anu) => {
 					pok = await getBuffer(nimek)
 					client.sendMessage(from, pok, image, { quoted: mek })
 					break
-		
-				case 'meme':
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=meme`, {method: 'get'})
+					
+				case 'cars':
+				   	anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=cars`, {method: 'get'})
 					reply(mess.wait)
 					var n = JSON.parse(JSON.stringify(anu));
 					var nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
 					client.sendMessage(from, pok, image, { quoted: mek })
 					break
-                
-				case 'anjing':
+		
+				case 'bocchi':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=bocchi`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+		
+		
+				case 'animegirl':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime%20girl`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+
+				case 'animeimg':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+
+				case 'loli':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=loli`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+
+				case 'dogs':
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anjing`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+					
+				case 'neko':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=neko`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+
+				case 'icon':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=icon%20anime`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+
+			   	case 'gato':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=gato`, {method: 'get'})
+					reply(mess.wait)
+					var n = JSON.parse(JSON.stringify(anu));
+					var nimek =  n[Math.floor(Math.random() * n.length)];
+					pok = await getBuffer(nimek)
+					client.sendMessage(from, pok, image, { quoted: mek })
+					break
+				
+				case 'meme':
+					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=meme`, {method: 'get'})
 					reply(mess.wait)
 					var n = JSON.parse(JSON.stringify(anu));
 					var nimek =  n[Math.floor(Math.random() * n.length)];
